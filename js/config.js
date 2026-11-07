@@ -8,7 +8,15 @@
 //    Tant que la valeur est `null`, l'application tourne en « mode démo » :
 //    les données restent dans ce navigateur (pratique pour tester avec
 //    plusieurs onglets, mais impossible de jouer à plusieurs téléphones).
-export const FIREBASE_CONFIG = null;
+export const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAR9HFK52hB3q6K3Fkwj9dOrPvCW-OXaJU",
+  authDomain: "quizz90-293a5.firebaseapp.com",
+  databaseURL: "https://quizz90-293a5-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "quizz90-293a5",
+  storageBucket: "quizz90-293a5.firebasestorage.app",
+  messagingSenderId: "35820140797",
+  appId: "1:35820140797:web:99fe01ae14f9d75f3fa694",
+};
 /* Exemple :
 export const FIREBASE_CONFIG = {
   apiKey: "AIza...",
