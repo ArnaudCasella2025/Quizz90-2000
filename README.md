@@ -1,5 +1,7 @@
 # Quizz 90's-2000's 📼💿🎮
 
+🎮 **Jouer : <https://arnaudcasella2025.github.io/Quizz90-2000/>**
+
 Quiz multijoueur de culture pop des années 90-2000 : une personne crée une partie et chacun joue sur son téléphone, sans rien installer.
 
 - **Front** : HTML/CSS/JS pur (modules ES), sans étape de build. Il est hébergé sur **GitHub Pages**.
