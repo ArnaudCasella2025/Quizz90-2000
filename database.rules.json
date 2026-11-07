@@ -1,0 +1,46 @@
+{
+  "rules": {
+    "games": {
+      "$code": {
+        ".read": "auth != null",
+        "meta": {
+          ".write": "auth != null && (data.exists() ? data.child('hostUid').val() === auth.uid : newData.child('hostUid').val() === auth.uid)"
+        },
+        "current": {
+          ".write": "auth != null && root.child('games').child($code).child('meta/hostUid').val() === auth.uid"
+        },
+        "reveal": {
+          ".write": "auth != null && root.child('games').child($code).child('meta/hostUid').val() === auth.uid"
+        },
+        "scores": {
+          ".write": "auth != null && root.child('games').child($code).child('meta/hostUid').val() === auth.uid"
+        },
+        "players": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid && root.child('games').child($code).child('meta').exists()",
+            "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 16" },
+            "avatar": { ".validate": "newData.isString() && newData.val().length <= 8" },
+            "connected": { ".validate": "newData.isBoolean()" },
+            "joinedAt": { ".validate": "newData.isNumber()" },
+            "$other": { ".validate": false }
+          }
+        },
+        "answers": {
+          "$qKey": {
+            "$uid": {
+              ".write": "auth != null && auth.uid === $uid && !data.exists() && newData.exists() && root.child('games').child($code).child('meta/qKey').val() === $qKey && root.child('games').child($code).child('meta/status').val() === 'question' && root.child('games').child($code).child('meta/locked').val() !== true && now <= root.child('games').child($code).child('meta/startedAt').val() + root.child('games').child($code).child('meta/duration').val() * 1000 + 1500",
+              ".validate": "newData.child('at').val() === now && (newData.child('choice').isNumber() || newData.child('items').exists())"
+            }
+          }
+        },
+        "$other": { ".validate": false }
+      }
+    },
+    "keys": {
+      "$code": {
+        ".read": "auth != null && root.child('games').child($code).child('meta/hostUid').val() === auth.uid",
+        ".write": "auth != null && root.child('games').child($code).child('meta/hostUid').val() === auth.uid"
+      }
+    }
+  }
+}
