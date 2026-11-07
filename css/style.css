@@ -431,3 +431,4 @@ body.tv .board { display: grid; grid-template-columns: 1fr 1fr; }
 body.tv .players .player-chip { font-size: 1.4rem; }
 body.tv .logo-mid { width: 340px; }
 body.tv .winner-name { font-size: 3.4rem; }
+.online-badge { margin: auto auto 0; font-size: .8rem; background: rgba(35, 29, 51, .8); color: #fff; padding: 6px 12px; border-radius: 99px; }

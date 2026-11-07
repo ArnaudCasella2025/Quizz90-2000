@@ -1,10 +1,10 @@
-import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js';
-import { createDb } from './db.js';
+import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261107122358';
+import { createDb } from './db.js?v=20261107122358';
 import {
   cleanCode, gamePath, createGame, joinGame, submitAnswer, HostEngine, rankPlayers,
   autoGrade, statMessage, randomLine, finalLine,
-} from './game.js';
-import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js';
+} from './game.js?v=20261107122358';
+import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261107122358';
 
 const app = document.getElementById('app');
 let db;
@@ -59,7 +59,7 @@ function route() {
 
 const demoBanner = () => (db.mode === 'local'
   ? h('div', { class: 'demo-banner' }, '🧪 Mode démo : les données restent dans ce navigateur (ouvre plusieurs onglets pour simuler des joueurs). Configure Firebase pour jouer sur plusieurs téléphones.')
-  : null);
+  : h('p', { class: 'online-badge' }, '🟢 Serveur en ligne : jouable sur plusieurs téléphones'));
 
 // ============================================================ ÉCRAN 1 — ACCUEIL
 function renderHome() {

@@ -1,5 +1,5 @@
 // Petits utilitaires d'interface.
-import { CATEGORIES } from './config.js';
+import { CATEGORIES } from './config.js?v=20261107122358';
 
 export function h(tag, props, ...children) {
   const el = document.createElement(tag);
