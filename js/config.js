@@ -51,7 +51,7 @@ export const GAME = {
 
   // Répartition indicative des catégories (poids relatifs, modifiables).
   categoryWeights: {
-    series: 25, musique: 20, cinema: 15, jeux: 10, pubs: 10, tech: 10, culture: 10,
+    series: 22, musique: 18, cinema: 25, jeux: 9, pubs: 9, tech: 9, culture: 8,
   },
   // Proportion maximale de questions « Cite-moi » dans une partie.
   maxFreeRatio: 0.15,
