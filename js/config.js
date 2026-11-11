@@ -51,7 +51,7 @@ export const GAME = {
 
   // Répartition indicative des catégories (poids relatifs, modifiables).
   categoryWeights: {
-    series: 22, musique: 18, cinema: 25, jeux: 9, pubs: 9, tech: 9, culture: 8,
+    series: 20, musique: 16, cinema: 22, jeux: 8, pubs: 8, tech: 8, culture: 7, evenements: 11,
   },
   // Proportion maximale de questions « Cite-moi » dans une partie.
   maxFreeRatio: 0.15,
@@ -65,6 +65,7 @@ export const CATEGORIES = {
   pubs: { label: 'Publicités', emoji: '📢' },
   tech: { label: 'Technologie & Internet', emoji: '💻' },
   culture: { label: 'Culture pop', emoji: '🧠' },
+  evenements: { label: 'Événements', emoji: '📰' },
 };
 
 export const AVATARS = ['📼', '💿', '📺', '🎮', '📱', '⭐', '💖', '😎', '🕹️', '📷', '🛹', '🍭'];

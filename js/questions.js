@@ -15,7 +15,7 @@
 //
 //  « Qui suis-je ? » : ajouter  kind: 'jesuis'  (étiquette dédiée, +5 s au chrono auto)
 //
-//  Catégories : series, musique, cinema, jeux, pubs, tech, culture
+//  Catégories : series, musique, cinema, jeux, pubs, tech, culture, evenements
 // ============================================================
 
 export const QUESTIONS = [
@@ -188,6 +188,35 @@ export const QUESTIONS = [
   { id: 'g07', cat: 'culture', diff: 2, q: 'Quelle équipe est au cœur du scandale de dopage du Tour de France 1998 ?', a: ['Festina', 'Cofidis', 'US Postal'] },
   { id: 'g08', cat: 'culture', diff: 2, q: 'Quelle marque de chaussures à semelles géantes était culte chez les Spice Girls ?', a: ['Buffalo', 'Converse', 'Vans'] },
   { id: 'g09', cat: 'culture', diff: 1, q: 'Que fallait-il faire avec un Tamagotchi ?', a: ['S’occuper d’un animal virtuel', 'Écouter de la musique', 'Envoyer des SMS'] },
+
+  // ---------------------------------------------------- ÉVÉNEMENTS NOTABLES
+  { id: 'e01', cat: 'evenements', diff: 1, q: "Quelle princesse a perdu la vie à Paris en 1997 ?", a: ["Diana", "Grace de Monaco", "Stéphanie de Monaco"] },
+  { id: 'e02', cat: 'evenements', diff: 1, q: "En quelle année tombe le mur de Berlin ?", a: ["1989", "1991", "1987"] },
+  { id: 'e03', cat: 'evenements', diff: 1, q: "Le 11 septembre 2001, dans quelle ville s’effondrent les tours jumelles du World Trade Center ?", a: ["New York", "Washington", "Chicago"] },
+  { id: 'e04', cat: 'evenements', diff: 2, q: "En quelle année est inauguré le tunnel sous la Manche ?", a: ["1994", "1990", "1998"] },
+  { id: 'e05', cat: 'evenements', diff: 1, q: "Quel président de la République est élu en 1995 ?", a: ["Jacques Chirac", "Lionel Jospin", "Édouard Balladur"] },
+  { id: 'e06', cat: 'evenements', diff: 2, q: "21 avril 2002 : qui se qualifie pour le second tour face à Jacques Chirac ?", a: ["Jean-Marie Le Pen", "Lionel Jospin", "François Bayrou"] },
+  { id: 'e07', cat: 'evenements', diff: 2, q: "Comment s’appelle la brebis clonée née en 1996 ?", a: ["Dolly", "Molly", "Polly"] },
+  { id: 'e08', cat: 'evenements', diff: 3, q: "En quelle année le Concorde effectue-t-il son dernier vol commercial ?", a: ["2003", "2000", "2006"] },
+  { id: 'e09', cat: 'evenements', diff: 1, q: "Quelle ville accueille les Jeux olympiques d’été en 2000 ?", a: ["Sydney", "Atlanta", "Athènes"] },
+  { id: 'e10', cat: 'evenements', diff: 2, q: "Quelle ville française accueille les Jeux olympiques d’hiver de 1992 ?", a: ["Albertville", "Grenoble", "Chamonix"] },
+  { id: 'e11', cat: 'evenements', diff: 2, q: "Quel pays remporte l’Euro 2000 de football ?", a: ["La France", "L’Italie", "Le Portugal"] },
+  { id: 'e12', cat: 'evenements', diff: 3, q: "Qui marque le « but en or » de la finale de l’Euro 2000 ?", a: ["David Trezeguet", "Sylvain Wiltord", "Thierry Henry"] },
+  { id: 'e13', cat: 'evenements', diff: 1, q: "Quel phénomène est visible en France le 11 août 1999 ?", a: ["Une éclipse totale de Soleil", "Une éclipse de Lune", "Une pluie d’étoiles filantes géante"] },
+  { id: 'e14', cat: 'evenements', diff: 2, q: "En quelle année Nelson Mandela devient-il président de l’Afrique du Sud ?", a: ["1994", "1990", "1999"] },
+  { id: 'e15', cat: 'evenements', diff: 3, q: "Comment s’appelle la tempête qui ravage la France fin décembre 1999 ?", a: ["Lothar", "Xynthia", "Klaus"] },
+  { id: 'e16', cat: 'evenements', diff: 3, q: "Quelle mission de la NASA se pose sur Mars en 1997 avec un petit robot ?", a: ["Mars Pathfinder", "Curiosity", "Spirit"] },
+  { id: 'e17', cat: 'evenements', diff: 2, q: "Au passage à l’euro, combien valait 1 euro en francs ?", a: ["6,56 F", "5,96 F", "7,56 F"] },
+  { id: 'e18', cat: 'evenements', diff: 2, q: "En 1991, quelle guerre éclate après l’invasion du Koweït ?", a: ["La guerre du Golfe", "La guerre des Balkans", "La guerre d’Afghanistan"] },
+  { id: 'e19', cat: 'evenements', diff: 2, q: "Le 25 juillet 2000, un Concorde s’écrase à Gonesse. De quelle compagnie ?", a: ["Air France", "British Airways", "Lufthansa"] },
+  { id: 'e20', cat: 'evenements', diff: 1, q: "Quel président américain est au cœur de l’affaire Monica Lewinsky en 1998 ?", a: ["Bill Clinton", "George W. Bush", "George H. W. Bush"] },
+  { id: 'e21', cat: 'evenements', diff: 1, q: "Avec quel pays la Corée du Sud organise-t-elle la Coupe du monde 2002 ?", a: ["Le Japon", "La Chine", "La Thaïlande"] },
+  { id: 'e22', cat: 'evenements', diff: 2, q: "En 1997, quel ordinateur d’IBM bat le champion d’échecs Garry Kasparov ?", a: ["Deep Blue", "Watson", "Big Blue"] },
+  { id: 'e23', cat: 'evenements', diff: 2, q: "Quel ancien président de la République meurt en janvier 1996 ?", a: ["François Mitterrand", "Georges Pompidou", "Valéry Giscard d’Estaing"] },
+  { id: 'e24', cat: 'evenements', diff: 2, q: "Quel traité signé en 1992 crée l’Union européenne ?", a: ["Le traité de Maastricht", "Le traité de Rome", "Le traité de Lisbonne"] },
+  { id: 'e25', cat: 'evenements', diff: 2, q: "Quelle année est marquée par une canicule historique en France ?", a: ["2003", "2001", "2006"] },
+  { id: 'e26', cat: 'evenements', diff: 2, q: "Quel télescope spatial est lancé en 1990 ?", a: ["Hubble", "James Webb", "Kepler"] },
+  { id: 'e27', cat: 'evenements', diff: 2, q: "Qui devient pape en 2005 ?", a: ["Benoît XVI", "François", "Jean-Paul II"] },
 
   // ---------------------------------------------------- QUI SUIS-JE ? (kind: 'jesuis')
   { id: 'w01', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1996 avec Neve Campbell, qui parle de sororité sur fond de sorcellerie. Qui suis-je ?", a: ["The Craft (Dangereuse Alliance)", "Les Ensorceleuses", "Hocus Pocus"] },
