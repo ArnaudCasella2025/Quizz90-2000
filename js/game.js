@@ -6,9 +6,9 @@
 //  du chrono sont garantis par les règles de sécurité.
 // ============================================================
 
-import { TS } from './db.js?v=20261111093504';
-import { GAME } from './config.js?v=20261111093504';
-import { QUESTIONS } from './questions.js?v=20261111093504';
+import { TS } from './db.js?v=20261111093637';
+import { GAME } from './config.js?v=20261111093637';
+import { QUESTIONS } from './questions.js?v=20261111093637';
 
 const CODE_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 

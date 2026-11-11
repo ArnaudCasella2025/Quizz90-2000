@@ -1,10 +1,10 @@
-import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111093504';
-import { createDb } from './db.js?v=20261111093504';
+import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111093637';
+import { createDb } from './db.js?v=20261111093637';
 import {
   cleanCode, gamePath, createGame, joinGame, submitAnswer, HostEngine, rankPlayers,
   autoGrade, statMessage, randomLine, finalLine,
-} from './game.js?v=20261111093504';
-import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111093504';
+} from './game.js?v=20261111093637';
+import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111093637';
 
 const app = document.getElementById('app');
 let db;
@@ -465,8 +465,15 @@ function gradingView(ctx) {
   const cards = [];
   let accepted = [];
   const list = h('div', { class: 'grading' }, h('p', { class: 'muted' }, 'Chargement…'));
+  const possible = h('details', { class: 'panel possible', open: true });
   ctx.engine.question(ctx.g.meta.qIndex).then((full) => {
     accepted = full.accepted;
+    possible.replaceChildren(
+      h('summary', {}, `💡 Réponses possibles (${accepted.length})`),
+      h('ul', { class: 'possible-list' }, accepted.map((a) => {
+        const [main, ...alts] = a.split('|');
+        return h('li', {}, h('b', {}, main), alts.length ? h('span', { class: 'muted' }, ` (${alts.join(', ')})`) : null);
+      })));
     const ans = ctx.g.answers?.[qKey] || {};
     const players = rankPlayers(ctx.g.players, ctx.g.scores).sort((a, b) => a.name.localeCompare(b.name));
     list.replaceChildren(...players.map((p) => {
@@ -491,7 +498,8 @@ function gradingView(ctx) {
   });
   el.append(
     h('div', { class: 'sticker sticker-violet tilt-r' }, '✍️ À toi de corriger !'),
-    h('p', { class: 'small center-text' }, 'Les bonnes réponses ont été pré-cochées : vérifie et ajuste.'),
+    h('p', { class: 'small center-text' }, 'Les bonnes réponses ont été pré-cochées : vérifie et ajuste. La liste ci-dessous t’aide à trancher.'),
+    possible,
     list,
     hostBar(ctx, h('button', { class: 'btn btn-pink big', onclick: () => ctx.engine.submitGrades(grades) }, '✅ Valider la correction')));
   return { el };
