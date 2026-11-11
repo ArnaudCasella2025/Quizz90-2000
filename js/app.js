@@ -1,10 +1,10 @@
-import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261107122358';
-import { createDb } from './db.js?v=20261107122358';
+import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111093021';
+import { createDb } from './db.js?v=20261111093021';
 import {
   cleanCode, gamePath, createGame, joinGame, submitAnswer, HostEngine, rankPlayers,
   autoGrade, statMessage, randomLine, finalLine,
-} from './game.js?v=20261107122358';
-import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261107122358';
+} from './game.js?v=20261111093021';
+import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111093021';
 
 const app = document.getElementById('app');
 let db;
@@ -544,11 +544,9 @@ function revealView(ctx) {
   }
   el.append(h('p', { class: 'stat' }, statMessage(r.stats || {})));
 
-  const top = rankPlayers(g.players, g.scores).slice(0, 3);
-  el.append(h('div', { class: 'mini-board panel' }, h('div', { class: 'label' }, 'Classement'),
-    top.map((p) => h('div', { class: 'mini-row' + (p.uid === ctx.uid ? ' me' : '') },
-      h('span', {}, medal(p.position)), avatarEl(p.avatar, 'small'), h('span', { class: 'grow' }, p.name), h('b', {}, `${fmt(p.total)} pts`)))));
-  if (ctx.isHost) el.append(hostBar(ctx, h('button', { class: 'btn btn-pink big', onclick: () => ctx.engine.showLeaderboard() }, '🏆 Voir le classement')));
+  const isLast = g.meta.qIndex + 1 >= g.meta.total;
+  if (ctx.isHost) el.append(hostBar(ctx, h('button', { class: 'btn btn-pink big', onclick: () => ctx.engine.next() }, isLast ? '🏁 Résultats finaux' : '▶ Question suivante')));
+  else el.append(h('p', { class: 'waiting' }, isLast ? 'Résultats finaux dans un instant' : 'Question suivante dans un instant', h('span', { class: 'dots' })));
   return { el };
 }
 
