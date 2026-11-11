@@ -1,10 +1,10 @@
-import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111093855';
-import { createDb } from './db.js?v=20261111093855';
+import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111094125';
+import { createDb } from './db.js?v=20261111094125';
 import {
   cleanCode, gamePath, createGame, joinGame, submitAnswer, HostEngine, rankPlayers,
   autoGrade, statMessage, randomLine, finalLine,
-} from './game.js?v=20261111093855';
-import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111093855';
+} from './game.js?v=20261111094125';
+import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111094125';
 
 const app = document.getElementById('app');
 let db;
@@ -105,7 +105,7 @@ const backLink = () => h('a', { class: 'back', href: '#/' }, '← Retour');
 function renderCreate() {
   setBg('bg2');
   const p = profile();
-  const st = { ...p, hostPlays: true, count: GAME.defaultQuestionCount, duration: 'auto', speedBonus: true, includeFree: true };
+  const st = { ...p, hostPlays: true, count: GAME.defaultQuestionCount, duration: 'auto', level: 'mix', speedBonus: true, includeFree: true };
   const f = profileFields(st);
   const playerBlock = h('div', {}, f.nodes);
   const btn = h('button', { class: 'btn btn-pink big', type: 'submit' }, 'Créer la partie');
@@ -130,6 +130,8 @@ function renderCreate() {
   playerBlock,
   h('label', { class: 'label' }, 'Nombre de questions'),
   segmented(GAME.questionCounts.map((n) => [n, String(n)]), st.count, (v) => { st.count = v; }),
+  h('label', { class: 'label' }, 'Niveau des questions'),
+  segmented([['easy', '🟢 Facile'], ['mix', '🎲 Mix'], ['hard', '🔴 Expert']], st.level, (v) => { st.level = v; }),
   h('label', { class: 'label' }, 'Chrono par question'),
   segmented([['auto', 'Auto'], ...GAME.durations.map((d) => [d, `${d}s`])], st.duration, (v) => { st.duration = v; }),
   toggle('Bonus de rapidité ⚡', st.speedBonus, (v) => { st.speedBonus = v; }),

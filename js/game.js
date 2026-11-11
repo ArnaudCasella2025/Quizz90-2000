@@ -6,9 +6,9 @@
 //  du chrono sont garantis par les règles de sécurité.
 // ============================================================
 
-import { TS } from './db.js?v=20261111093855';
-import { GAME } from './config.js?v=20261111093855';
-import { QUESTIONS } from './questions.js?v=20261111093855';
+import { TS } from './db.js?v=20261111094125';
+import { GAME } from './config.js?v=20261111094125';
+import { QUESTIONS } from './questions.js?v=20261111094125';
 
 const CODE_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -92,11 +92,18 @@ function saveSeen(ids) {
   try { localStorage.setItem(SEEN_KEY, JSON.stringify(out)); } catch { /* ignore */ }
 }
 
-export function selectQuestions({ count, includeFree, duration }) {
+// Niveaux : Tranquille = facile + moyen, Expert = moyen + difficile (difficiles en priorité).
+const LEVELS = { easy: [1, 2], mix: [1, 2, 3], hard: [2, 3] };
+
+export function selectQuestions({ count, includeFree, duration, level = 'mix' }) {
   const seen = loadSeen();
-  const pool = QUESTIONS.filter((q) => includeFree || q.type !== 'free');
+  const diffs = LEVELS[level] || LEVELS.mix;
+  const allowed = (q) => includeFree || q.type !== 'free';
+  let pool = QUESTIONS.filter((q) => allowed(q) && diffs.includes(q.diff));
+  if (pool.filter((q) => q.type !== 'free').length < count) pool = QUESTIONS.filter(allowed);
+  const prio = (q) => (level === 'hard' && q.diff !== 3 ? 1 : 0);
   const byCat = {};
-  for (const q of shuffle(pool).sort((a, b) => seen.has(a.id) - seen.has(b.id))) {
+  for (const q of shuffle(pool).sort((a, b) => seen.has(a.id) - seen.has(b.id) || prio(a) - prio(b))) {
     (byCat[q.cat] ||= []).push(q);
   }
   const maxFree = includeFree ? Math.max(1, Math.floor(count * GAME.maxFreeRatio)) : 0;
@@ -161,7 +168,7 @@ export async function createGame(db, opts) {
     createdAt: db.now(),
     total: questions.length,
     qIndex: -1,
-    settings: { speedBonus: !!opts.speedBonus, includeFree: !!opts.includeFree, duration: String(opts.duration) },
+    settings: { level: opts.level || 'mix', speedBonus: !!opts.speedBonus, includeFree: !!opts.includeFree, duration: String(opts.duration) },
   };
   let code = null;
   for (let attempt = 0; attempt < 12 && !code; attempt++) {
