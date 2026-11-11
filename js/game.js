@@ -6,9 +6,9 @@
 //  du chrono sont garantis par les règles de sécurité.
 // ============================================================
 
-import { TS } from './db.js?v=20261111094125';
-import { GAME } from './config.js?v=20261111094125';
-import { QUESTIONS } from './questions.js?v=20261111094125';
+import { TS } from './db.js?v=20261111094142';
+import { GAME } from './config.js?v=20261111094142';
+import { QUESTIONS } from './questions.js?v=20261111094142';
 
 const CODE_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -92,7 +92,7 @@ function saveSeen(ids) {
   try { localStorage.setItem(SEEN_KEY, JSON.stringify(out)); } catch { /* ignore */ }
 }
 
-// Niveaux : Tranquille = facile + moyen, Expert = moyen + difficile (difficiles en priorité).
+// Niveaux : Facile = facile + moyen, Expert = moyen + difficile.
 const LEVELS = { easy: [1, 2], mix: [1, 2, 3], hard: [2, 3] };
 
 export function selectQuestions({ count, includeFree, duration, level = 'mix' }) {
@@ -101,7 +101,8 @@ export function selectQuestions({ count, includeFree, duration, level = 'mix' })
   const allowed = (q) => includeFree || q.type !== 'free';
   let pool = QUESTIONS.filter((q) => allowed(q) && diffs.includes(q.diff));
   if (pool.filter((q) => q.type !== 'free').length < count) pool = QUESTIONS.filter(allowed);
-  const prio = (q) => (level === 'hard' && q.diff !== 3 ? 1 : 0);
+  // Facile : les questions faciles d'abord ; Expert : les difficiles d'abord.
+  const prio = (q) => (level === 'hard' ? (q.diff === 3 ? 0 : 1) : level === 'easy' ? (q.diff === 1 ? 0 : 1) : 0);
   const byCat = {};
   for (const q of shuffle(pool).sort((a, b) => seen.has(a.id) - seen.has(b.id) || prio(a) - prio(b))) {
     (byCat[q.cat] ||= []).push(q);

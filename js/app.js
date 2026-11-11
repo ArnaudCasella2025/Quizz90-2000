@@ -1,10 +1,10 @@
-import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111094125';
-import { createDb } from './db.js?v=20261111094125';
+import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111094142';
+import { createDb } from './db.js?v=20261111094142';
 import {
   cleanCode, gamePath, createGame, joinGame, submitAnswer, HostEngine, rankPlayers,
   autoGrade, statMessage, randomLine, finalLine,
-} from './game.js?v=20261111094125';
-import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111094125';
+} from './game.js?v=20261111094142';
+import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111094142';
 
 const app = document.getElementById('app');
 let db;
