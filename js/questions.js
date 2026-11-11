@@ -13,6 +13,8 @@
 //          `accepted` sert à pré-cocher les bonnes réponses ;
 //          l'hôte valide toujours à la main.
 //
+//  « Qui suis-je ? » : ajouter  kind: 'jesuis'  (étiquette dédiée, +5 s au chrono auto)
+//
 //  Catégories : series, musique, cinema, jeux, pubs, tech, culture
 // ============================================================
 
@@ -186,6 +188,39 @@ export const QUESTIONS = [
   { id: 'g07', cat: 'culture', diff: 2, q: 'Quelle équipe est au cœur du scandale de dopage du Tour de France 1998 ?', a: ['Festina', 'Cofidis', 'US Postal'] },
   { id: 'g08', cat: 'culture', diff: 2, q: 'Quelle marque de chaussures à semelles géantes était culte chez les Spice Girls ?', a: ['Buffalo', 'Converse', 'Vans'] },
   { id: 'g09', cat: 'culture', diff: 1, q: 'Que fallait-il faire avec un Tamagotchi ?', a: ['S’occuper d’un animal virtuel', 'Écouter de la musique', 'Envoyer des SMS'] },
+
+  // ---------------------------------------------------- QUI SUIS-JE ? (kind: 'jesuis')
+  { id: 'w01', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1996 avec Neve Campbell, qui parle de sororité sur fond de sorcellerie. Qui suis-je ?", a: ["The Craft (Dangereuse Alliance)", "Les Ensorceleuses", "Hocus Pocus"] },
+  { id: 'w02', kind: 'jesuis', cat: 'cinema', diff: 1, q: "Je suis un film de 1990 : un petit garçon oublié par sa famille défend sa maison contre deux cambrioleurs. Qui suis-je ?", a: ["Maman, j’ai raté l’avion", "Beethoven", "Denis la Malice"] },
+  { id: 'w03', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1999 : un employé de bureau insomniaque crée un club de combat clandestin. Qui suis-je ?", a: ["Fight Club", "American Beauty", "Matrix"] },
+  { id: 'w04', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1998 : un homme découvre que toute sa vie est une émission de télé. Qui suis-je ?", a: ["The Truman Show", "EDtv", "Pleasantville"] },
+  { id: 'w05', kind: 'jesuis', cat: 'cinema', diff: 3, q: "Je suis un film de 2000 : un homme sans mémoire immédiate enquête à l’aide de tatouages et de Polaroid. Qui suis-je ?", a: ["Memento", "Insomnia", "Le Prestige"] },
+  { id: 'w06', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1995 : cinq suspects, un interrogatoire et un mystérieux criminel nommé Keyser Söze. Qui suis-je ?", a: ["Usual Suspects", "Seven", "L.A. Confidential"] },
+  { id: 'w07', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1995 avec Brad Pitt et Morgan Freeman : deux flics traquent un tueur inspiré des sept péchés capitaux. Qui suis-je ?", a: ["Seven", "Usual Suspects", "Le Silence des agneaux"] },
+  { id: 'w08', kind: 'jesuis', cat: 'cinema', diff: 1, q: "Je suis un film de 1997 : un paquebot, un dessin au fusain et un iceberg. Qui suis-je ?", a: ["Titanic", "Poséidon", "Abyss"] },
+  { id: 'w09', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film français de 1995 en noir et blanc : 24 heures dans la vie de trois jeunes de banlieue. Qui suis-je ?", a: ["La Haine", "Ma 6-T va crack-er", "Le Thé au harem d’Archimède"] },
+  { id: 'w10', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1994 : un tueur à gages solitaire, qui prend soin de sa plante verte, recueille une fillette de 12 ans. Qui suis-je ?", a: ["Léon", "Nikita", "Le Samouraï"] },
+  { id: 'w11', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1999 : trois étudiants disparaissent dans une forêt du Maryland en tournant un documentaire. Qui suis-je ?", a: ["Le Projet Blair Witch", "Paranormal Activity", "Cabin Fever"] },
+  { id: 'w12', kind: 'jesuis', cat: 'cinema', diff: 2, q: "Je suis un film de 1993 : un présentateur météo revit sans cesse la même journée du 2 février. Qui suis-je ?", a: ["Un jour sans fin", "Click", "Next"] },
+  { id: 'w13', kind: 'jesuis', cat: 'series', diff: 1, q: "Je suis une série des années 90 : six amis new-yorkais passent leur vie dans un café. Qui suis-je ?", a: ["Friends", "Seinfeld", "Dingue de toi"] },
+  { id: 'w14', kind: 'jesuis', cat: 'series', diff: 2, q: "Je suis une série (2000-2006) : un ado surdoué, des frères infernaux et une mère qui crie beaucoup. Qui suis-je ?", a: ["Malcolm", "Ma famille d’abord", "Notre belle famille"] },
+  { id: 'w15', kind: 'jesuis', cat: 'series', diff: 2, q: "Je suis une série française de 1992 : des étudiants, une cafétéria, un groupe de musique et beaucoup de bisous. Qui suis-je ?", a: ["Hélène et les Garçons", "Le Miel et les Abeilles", "Premiers Baisers"] },
+  { id: 'w16', kind: 'jesuis', cat: 'series', diff: 2, q: "Je suis une série (1994-2009) : des médecins aux urgences d’un hôpital de Chicago. Qui suis-je ?", a: ["Urgences", "Chicago Hope", "Grey’s Anatomy"] },
+  { id: 'w17', kind: 'jesuis', cat: 'series', diff: 1, q: "Je suis une série (1997-2003) : une lycéenne de Sunnydale chasse les vampires, guidée par son Observateur. Qui suis-je ?", a: ["Buffy contre les vampires", "Charmed", "Angel"] },
+  { id: 'w18', kind: 'jesuis', cat: 'series', diff: 1, q: "Je suis une série (1993-2002) : deux agents du FBI, l’un croit aux extraterrestres, l’autre est sceptique. Qui suis-je ?", a: ["X-Files", "Millennium", "Twin Peaks"] },
+  { id: 'w19', kind: 'jesuis', cat: 'series', diff: 1, q: "Je suis une série (1998-2006) : trois sœurs sorcières vivent dans un manoir à San Francisco. Qui suis-je ?", a: ["Charmed", "Sabrina, l’apprentie sorcière", "Buffy contre les vampires"] },
+  { id: 'w20', kind: 'jesuis', cat: 'series', diff: 2, q: "Je suis une série (1990-2000) : des ados d’un quartier chic de Los Angeles et leur snack préféré, le Peach Pit. Qui suis-je ?", a: ["Beverly Hills 90210", "Melrose Place", "Sauvés par le gong"] },
+  { id: 'w21', kind: 'jesuis', cat: 'jeux', diff: 2, q: "Je suis une console sortie en 2000, noire, qui lit aussi les DVD. Qui suis-je ?", a: ["La PlayStation 2", "La Xbox", "La GameCube"] },
+  { id: 'w22', kind: 'jesuis', cat: 'jeux', diff: 2, q: "Je suis un jeu de 1997 : un ex-soldat aux cheveux en pointe et à l’épée géante affronte Sephiroth. Qui suis-je ?", a: ["Final Fantasy VII", "Final Fantasy VIII", "Chrono Trigger"] },
+  { id: 'w23', kind: 'jesuis', cat: 'jeux', diff: 2, q: "Je suis un jeu de 1996 : un plombier en 3D doit récupérer 120 étoiles dans le château de Peach. Qui suis-je ?", a: ["Super Mario 64", "Super Mario Sunshine", "Banjo-Kazooie"] },
+  { id: 'w24', kind: 'jesuis', cat: 'tech', diff: 1, q: "Je suis un petit œuf électronique japonais de 1996 : il faut me nourrir et nettoyer mes crottes. Qui suis-je ?", a: ["Le Tamagotchi", "Le Furby", "Le Giga Pet"] },
+  { id: 'w25', kind: 'jesuis', cat: 'tech', diff: 1, q: "Je suis une messagerie de Microsoft : on m’utilisait pour envoyer des wizz et changer son pseudo. Qui suis-je ?", a: ["MSN Messenger", "ICQ", "Skype"] },
+  { id: 'w26', kind: 'jesuis', cat: 'tech', diff: 2, q: "Je suis un téléphone Nokia de 2000, quasi indestructible, avec le jeu Snake II. Qui suis-je ?", a: ["Le Nokia 3310", "Le Nokia 3210", "Le Nokia 8210"] },
+  { id: 'w27', kind: 'jesuis', cat: 'musique', diff: 2, q: "Je suis une chanson de 1997 : Will Smith y raconte des agents en costume noir qui chassent les extraterrestres. Qui suis-je ?", a: ["Men in Black", "Gettin’ Jiggy wit It", "Wild Wild West"] },
+  { id: 'w28', kind: 'jesuis', cat: 'musique', diff: 1, q: "Je suis une chanteuse canadienne : en 1997, mon cœur continue pour un film où un bateau coule. Qui suis-je ?", a: ["Céline Dion", "Shania Twain", "Mariah Carey"] },
+  { id: 'w29', kind: 'jesuis', cat: 'musique', diff: 1, q: "Je suis un groupe de Seattle mené par Kurt Cobain ; mon album Nevermind sort en 1991. Qui suis-je ?", a: ["Nirvana", "Pearl Jam", "Soundgarden"] },
+  { id: 'w30', kind: 'jesuis', cat: 'musique', diff: 1, q: "Je suis une chanteuse révélée par la Star Academy en 2001, et en 2002… j’attends l’amour. Qui suis-je ?", a: ["Jenifer", "Nolwenn Leroy", "Lorie"] },
+  { id: 'w31', kind: 'jesuis', cat: 'musique', diff: 1, q: "Je suis un groupe de Manchester, mené par les frères Gallagher, auteur de « Wonderwall ». Qui suis-je ?", a: ["Oasis", "Blur", "Pulp"] },
 
   // ---------------------------------------------------- CITE-MOI X (réponses libres)
   {

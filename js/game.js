@@ -6,9 +6,9 @@
 //  du chrono sont garantis par les règles de sécurité.
 // ============================================================
 
-import { TS } from './db.js?v=20261111093305';
-import { GAME } from './config.js?v=20261111093305';
-import { QUESTIONS } from './questions.js?v=20261111093305';
+import { TS } from './db.js?v=20261111093504';
+import { GAME } from './config.js?v=20261111093504';
+import { QUESTIONS } from './questions.js?v=20261111093504';
 
 const CODE_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -128,11 +128,11 @@ export function selectQuestions({ count, includeFree, duration }) {
     const isFree = q.type === 'free';
     const dur = isFree
       ? q.duration || GAME.defaultFreeDuration
-      : duration === 'auto' ? q.duration || GAME.defaultDurationByDifficulty[q.diff] || 20 : Number(duration);
+      : duration === 'auto' ? q.duration || (GAME.defaultDurationByDifficulty[q.diff] || 20) + (q.kind === 'jesuis' ? 5 : 0) : Number(duration);
     const base = {
       index, id: q.id, type: isFree ? 'free' : 'qcm', cat: q.cat, diff: q.diff, text: q.q,
       duration: dur, points: q.points || GAME.basePoints,
-      explain: q.explain || null, fun: q.fun || null, image: q.image || null,
+      kind: q.kind || null, explain: q.explain || null, fun: q.fun || null, image: q.image || null,
     };
     if (isFree) return { ...base, count: q.count, accepted: q.accepted || [] };
     const order = shuffle([0, 1, 2].slice(0, q.a.length));
@@ -144,7 +144,7 @@ export function selectQuestions({ count, includeFree, duration }) {
 function publicQuestion(q, total) {
   const pub = {
     index: q.index, total, id: q.id, type: q.type, cat: q.cat, diff: q.diff,
-    text: q.text, duration: q.duration, image: q.image || null,
+    kind: q.kind || null, text: q.text, duration: q.duration, image: q.image || null,
   };
   if (q.type === 'free') pub.count = q.count;
   else pub.choices = q.choices;

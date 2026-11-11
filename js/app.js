@@ -1,10 +1,10 @@
-import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111093305';
-import { createDb } from './db.js?v=20261111093305';
+import { FIREBASE_CONFIG, GAME, AVATARS } from './config.js?v=20261111093504';
+import { createDb } from './db.js?v=20261111093504';
 import {
   cleanCode, gamePath, createGame, joinGame, submitAnswer, HostEngine, rankPlayers,
   autoGrade, statMessage, randomLine, finalLine,
-} from './game.js?v=20261111093305';
-import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111093305';
+} from './game.js?v=20261111093504';
+import { h, img, fmt, medal, catLabel, DIFF, toast, avatarEl, qrCodeSvg, segmented, toggle } from './ui.js?v=20261111093504';
 
 const app = document.getElementById('app');
 let db;
@@ -335,9 +335,10 @@ function useClock(ctx, fn) {
 function questionCard(q) {
   return h('div', { class: 'paper' },
     img('paper-ornament', 'paper-ornament'),
+    q.kind === 'jesuis' ? h('div', { class: 'q-kind' }, '🕵️ Qui suis-je ?') : null,
     h('div', { class: 'q-meta' }, catLabel(q.cat), ' · ', DIFF[q.diff] || ''),
     q.image ? h('img', { class: 'q-image', src: q.image, alt: '' }) : null,
-    h('p', { class: 'q-text' }, q.text),
+    h('p', { class: 'q-text' + (q.text.length > 90 ? ' long' : '') }, q.text),
     img('underline', 'underline'));
 }
 
